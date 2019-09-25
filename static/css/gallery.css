@@ -1,0 +1,52 @@
+.prevue-container, .main-picture {
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%
+}
+
+.prevue-container img {
+    width: 130px;
+    height: 180px;
+}
+
+/*.prevue-container div {*/
+/*    display: inline-block;*/
+/*}*/
+
+img.standart {
+    width: 45%;
+    height: 45%;
+}
+
+.block {
+    text-align: center;
+}
+
+.blue {
+    background: #3498db;
+    color: #fff;
+}
+.blue h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    padding: 2%;
+    position: relative;
+    text-align: center;
+}
+
+.aside {
+    background: #fc0; /* Цвет фона */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+}
+
+h2 {
+    font-family: Papyrus, serif;
+    font-size: 36px;
+    margin: 20px auto;
+    text-align: center;
+    color: black;
+}

@@ -1,0 +1,139 @@
+:root {
+    --tileSize: 50px;
+    --boardSize: 0px;
+}
+
+.board {
+    background: #e2e2e2;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    border: 8px solid #337AB7;
+    box-sizing: content-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+}
+.board .tile {
+    background: #e2e2e2;
+    width: var(--tileSize);
+    height: var(--tileSize);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(var(--tileSize) * .8);
+    cursor: pointer;
+    user-select: none;
+    transition: background .2s ease;
+    font-family: Tahoma, sans-serif;
+    box-shadow: inset 0 2px 0 0 #fcfcfc, inset 2px 0 0 0 #fcfcfc, inset 0 -2px 0 0 #c9c9c9, inset -2px 0 0 0 #c9c9c9;
+}
+
+.board .tile:hover:not(.tile--checked) {
+    background: #efefef;
+}
+.board .tile--checked {
+    background: #d5d5d5;
+    box-shadow: inset 0 1px 0 0 #c9c9c9, inset 1px 0 0 0 #c9c9c9, inset 0 -1px 0 0 #c9c9c9, inset -1px 0 0 0 #c9c9c9;
+}
+.board .tile--checked.tile--bomb:before, .board .tile--checked.tile--bomb:after {
+    opacity: 1;
+}
+.board .tile--checked:hover {
+    cursor: default;
+}
+.board .tile--bomb {
+    font-size: calc(var(--tileSize) * .5);
+}
+.board .tile--flagged {
+    font-size: calc(var(--tileSize) * .5);
+}
+.minesweeper-btn {
+    display: inline-block;
+    padding: 0 40px;
+    height: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #337AB7;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 50px;
+    transition: all 0.4s;
+    outline: none !important;
+    border: none;
+    text-decoration: none;
+}
+.minesweeper-btn:hover {
+    background-color: #333333;
+    color: #fff;
+}
+
+.menu {
+    text-align: center;
+    position: relative;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 2%;
+}
+
+.btn {
+    padding: 0 40px;
+    height: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #337AB7;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    margin-top: 10px;
+}
+
+label {
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+input {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.block {
+    display:inline-block;
+}
+
+.end-game {
+    text-align:center;
+    padding-bottom: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.end-game.win {
+    color: #34ce56;
+}
+
+.end-game.loose {
+    color: #ce0028;
+}
+
+img {
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+}
+
+

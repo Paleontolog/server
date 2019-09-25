@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сыграем в одну игру?</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/miner.css"/>
+</head>
+<body>
+
+<div>
+    <div class="menu">
+        <div class="block">
+            <label for="width">Ширина</label>
+            <input id="width" type="number" max="15" min="3" step="1" value="5">
+        </div>
+        <div class="block">
+            <label for="height">Высота</label>
+            <input id="height" type="number" max="15" min="3" step="1" value="5">
+        </div>
+        <div class="block">
+            <label for="mines">Количество мин</label>
+            <input id="mines" type="number" max="15" min="0" step="1" value="5">
+        </div>
+        <button id="newgame" class="btn">Новая игра</button>
+    </div>
+</div>
+
+<div>
+    <span id="gameEnd" class="end-game"></span>
+    <img id="pic" src="../static/src/deepnude.png" style="display: none;" />
+</div>
+
+
+<div class="board-wrap">
+    <div class="board" style="width: 500px;">
+    </div>
+</div>
+
+<script type="text/javascript" src="../static/js/task_31.js"></script>
+</body>
+</html>
+

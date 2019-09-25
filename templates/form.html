@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/form.css"/>
+</head>
+<body>
+<h1>Регистрация</h1>
+<div>
+    <form id="reg-form" name="reg-form" method="POST">
+        <ul class="form-list">
+            <li>
+                <label>Электронная почта:</label>
+                <div>
+                    <input class="form-control" type="text" name="useremail" value="">
+                </div>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label>Логин:</label>
+                <div>
+                    <input class="form-control" type="text" name="username" value="">
+                </div>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label>Возраст</label>
+                <div>
+                    <input class="form-control" type="text" name="age" value="">
+                </div>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label>Пароль</label>
+                <div>
+                    <input class="form-control" type="text" name="password" value="">
+                </div>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label>Повторите пароль</label>
+                <div>
+                    <input class="form-control" type="text" name="repeatedpassword" value="">
+                </div>
+                <span class="error"></span>
+            </li>
+            <li>
+                <label></label>
+                <div>
+                    <button id="register" type="submit">Зарегистрироваться</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/task_2.js"></script>
+</body>
+</html>
+
