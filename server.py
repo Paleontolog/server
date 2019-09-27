@@ -22,8 +22,15 @@ def get_str():
 
 @app.route('/', methods=['GET'])
 def get_strdas1():
-    return "Hui"
+    return "Helle, nerd :))"
 
+@app.route('/clock', methods=['GET'])
+def get_clock():
+    return render_template("clock.html")
+
+@app.route('/g', methods=['GET'])
+def get_str2():
+    return render_template("gallery.html")
 
 @app.route('/p', methods=['GET'])
 def get_str1():
