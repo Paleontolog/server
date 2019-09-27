@@ -34,7 +34,7 @@ def get_str2():
     
 @app.route('/miner', methods=['GET'])
 def get_miner():
-    return render_template("miner1.html")
+    return render_template("miner2.html")
 
 
 if __name__ == '__main__':
