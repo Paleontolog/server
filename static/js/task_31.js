@@ -20,8 +20,8 @@
     height_field.addEventListener('input', (e)=>inputCheck(e));
     width_field.addEventListener('input', (e)=>inputCheck(e));
     mineCount_field.addEventListener('input', (e)=>inputCheck(e));
-    
-	function inputCheck(e) {
+
+    function inputCheck(e) {
         height = parseInt(height_field.value);
         width = parseInt(width_field.value);
         var max = height * width - 10;
@@ -45,7 +45,8 @@
         endMessageField.display = "none";
         endMessageField.classList = "end-game";
         picture_field.style.display = "none";
-        picture_field.setAttribute("src", "../static/src/win.jpg");
+        picture_field.setAttribute("src", "");
+       // picture_field.setAttribute("src", "../static/src/win.jpg");
     }
 
     function clearGame() {
@@ -108,14 +109,16 @@
             var coord = parseCoords(element);
             var cell = field[coord[0]][coord[1]],
                 cell_view = field_wiew[coord[0] * height + coord[1]];
-            if (!cell.isFlag) {
-                cell_view.classList.add("tile--flagged");
-                cell_view.innerHTML = "&#128681;";
-            } else {
-                cell_view.classList.remove("tile--flagged");
-                cell_view.innerHTML = "";
+            if (!cell.isOpen) {
+                if (!cell.isFlag) {
+                    cell_view.classList.add("tile--flagged");
+                    cell_view.innerHTML = "&#128681;";
+                } else {
+                    cell_view.classList.remove("tile--flagged");
+                    cell_view.innerHTML = "";
+                }
+                cell.isFlag = !cell.isFlag;
             }
-            cell.isFlag = !cell.isFlag;
         }
     }
 
@@ -173,11 +176,13 @@
         if (win) {
             endMessageField.innerHTML = endGameMessage[0];
             endMessageField.classList.add("win");
-            picture_field.setAttribute("src", "../static/src/win.jpg");
+            picture_field.setAttribute("src", "../src/win.jpg");
+           // picture_field.setAttribute("src", "../static/src/win.jpg");
         } else {
             endMessageField.innerHTML = endGameMessage[1];
             endMessageField.classList.add("loose");
-            picture_field.setAttribute("src", "../static/src/loose.jpg");
+            picture_field.setAttribute("src", "../src/loose.jpg");
+            // picture_field.setAttribute("src", "../static/src/loose.jpg");
         }
         endMessageField.style.display = "block";
         picture_field.style.display = "block";
@@ -187,10 +192,14 @@
         field_wiew[x * width + y].setAttribute("style", `background: #e74c3c`);
         for (var i = 0; i < height; i++)
             for (var j = 0; j < width; j++) {
-                if (field[i][j].isMine) {
+                if (field[i][j].isMine && !field[i][j].isFlag) {
                     field_wiew[i * width + j].classList.add("tile--checked");
                     field_wiew[i * width + j].classList.add("tile--bomb");
                     field_wiew[i * width + j].innerHTML = "&#128163;";
+                } else if (field[i][j].isMine && field[i][j].isFlag) {
+                    field_wiew[i * width + j].setAttribute("style", `background: #2ecc71`);
+                } else if (field[i][j].isFlag) {
+                    field_wiew[i * width + j].setAttribute("style", `background: #e74c3c`);
                 }
             }
     }
@@ -253,9 +262,5 @@
             ceil.setAttribute("style", `color: ${numberColors[minesCount - 1]}`);
         }
     }
-
     clearGame();
-
 })();
-
-

@@ -1,0 +1,75 @@
+.timerWrap * {
+    box-sizing: border-box;
+}
+.timerWrap {
+    margin: 20px;
+    text-align: center;
+    display: inline-block;
+
+}
+.cuberow {
+    height: 50px;
+    perspective: 900px;
+}
+.cube {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.cube:nth-of-type(2) {
+    position: relative;
+    z-index: 1;
+}
+.cube > div {
+    position: absolute;
+    border-top: 1px solid #BFE2FF;
+    border-bottom: 1px solid #BFE2FF;
+    width: 50px;
+    height: 50px;
+}
+.cube .cubefront {
+    transform: rotateY(0deg) translateZ(25px);
+    background: #BFE2FF;
+}
+.cube .cubeback {
+    transform: rotateX(180deg) translateZ(25px);
+    background: #BFE2FF;
+}
+.cube .cubetop {
+    transform: rotateX(90deg) translateZ(25px);
+    background: #337AB7;
+}
+.cube .cubebottom {
+    transform: rotateX(-90deg) translateZ(25px);
+    background: #337AB7;
+}
+.cube .cubeleft {
+    transform: rotateY(-90deg) translateZ(25px);
+    background: #BFE2FF;
+}
+.cube .cuberight {
+    transform: rotateY(90deg) translateZ(25px);
+    background: #BFE2FF;
+}
+@media screen and (max-width: 767px) {
+    .timerWrap {
+        transform: scale(0.8);
+        width: calc(100% + 160px);
+        left: -80px;
+        position: relative;
+    }
+}
+@media screen and (max-width: 520px) {
+    .timerWrap {
+        transform: scale(0.5);
+        width: calc(100% + 360px);
+        left: -180px;
+    }
+}
+
+body {
+    text-align:center;
+}
