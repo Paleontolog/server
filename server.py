@@ -22,7 +22,7 @@ def get_str():
 
 @app.route('/clock', methods=['GET'])
 def get_clock():
-    return render_template("clock.html")
+    return render_template("clock1.html")
 
 @app.route('/p', methods=['GET'])
 def get_str1():
