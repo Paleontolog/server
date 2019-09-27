@@ -24,9 +24,9 @@ def get_str():
 def get_strdas1():
     return "Helle, nerd :))"
 
-@app.route('/clock', methods=['GET'])
-def get_clock():
-    return render_template("clock.html")
+#@app.route('/clock', methods=['GET'])
+#def get_clock():
+#    return render_template("clock.html")
 
 @app.route('/g', methods=['GET'])
 def get_str2():
@@ -46,7 +46,8 @@ def get_miner():
 
 
 if __name__ == '__main__':
-    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+   # app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+   # port = int(os.environ.get('PORT', 5000))
+    #app.run(host='0.0.0.0', port=port)
+    app.run()
     # app.run(host='192.168.0.120', port=8080)
