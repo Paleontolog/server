@@ -45,8 +45,8 @@
         endMessageField.display = "none";
         endMessageField.classList = "end-game";
         picture_field.style.display = "none";
-        picture_field.setAttribute("src", "");
-       // picture_field.setAttribute("src", "../static/src/win.jpg");
+       // picture_field.setAttribute("src", "");
+        picture_field.setAttribute("src", "../static/src/win.jpg");
     }
 
     function clearGame() {
@@ -176,13 +176,13 @@
         if (win) {
             endMessageField.innerHTML = endGameMessage[0];
             endMessageField.classList.add("win");
-            picture_field.setAttribute("src", "../src/win.jpg");
-           // picture_field.setAttribute("src", "../static/src/win.jpg");
+          //  picture_field.setAttribute("src", "../src/win.jpg");
+            picture_field.setAttribute("src", "../static/src/win.jpg");
         } else {
             endMessageField.innerHTML = endGameMessage[1];
             endMessageField.classList.add("loose");
-            picture_field.setAttribute("src", "../src/loose.jpg");
-            // picture_field.setAttribute("src", "../static/src/loose.jpg");
+           // picture_field.setAttribute("src", "../src/loose.jpg");
+             picture_field.setAttribute("src", "../static/src/loose.jpg");
         }
         endMessageField.style.display = "block";
         picture_field.style.display = "block";
