@@ -1,5 +1,4 @@
 absl-py==0.7.1
-sqllite3
 altgraph==0.16.1
 asn1crypto==0.24.0
 astor==0.8.0
