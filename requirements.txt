@@ -3,6 +3,7 @@ sqllite3
 altgraph==0.16.1
 asn1crypto==0.24.0
 astor==0.8.0
+sqlite3
 attrs==19.1.0
 Automat==0.7.0
 boto==2.49.0
