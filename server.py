@@ -118,7 +118,6 @@ def start_game():
     results = []
     cursor, connection = db_connection('static/database.db')
     characters = cursor.execute("SELECT * FROM characters").fetchall()
-    connection.commit()
     cursor.close()
     connection.close()
     characters = {i[0] for i in characters}
