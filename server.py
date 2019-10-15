@@ -66,8 +66,14 @@ def save_character():
     connection.close()
     return redirect(url_for('get_all_characters'))
 
+characters = []
+results = []
+
 @app.route('/game/redact', methods=['get'])
 def get_all_characters():
+    global characters, results
+    results = []
+    characters = []
     cursor, connection = db_connection('static/database.db')
     users = cursor.execute("SELECT * FROM characters").fetchall()
     users = [i[0] for i in users]
@@ -106,13 +112,9 @@ def delete_characters():
     connection.close()
     return redirect(url_for('get_all_characters'))
 
-characters = []
-results = []
-
 @app.route('/game', methods=['get'])
 def start_game():
     global characters, results
-    characters = []
     results = []
     cursor, connection = db_connection('static/database.db')
     characters = cursor.execute("SELECT * FROM characters").fetchall()
