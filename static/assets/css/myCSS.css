@@ -1,0 +1,23 @@
+.scroll {
+    height: 300px;
+    /*width: 1000px;*/
+    border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+    overflow-y: scroll; /* прокрутка по вертикали */
+}
+
+.font {
+    font: 14pt sans-serif;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+    width: 500px;
+    text-align: center;
+}
+
+tbody tr {
+    text-align: center;
+}
+

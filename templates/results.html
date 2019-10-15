@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Подведём итоги</title>
+    <link href="../static/assets/css/main2.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/assets/css/myCSS2.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1 align="center">Ну что ж, вот что ты выбрала</h1>
+<div class="wrapper inner content" align="center">
+    <table>
+        <thead>
+        <tr style="align-self: center">
+            <th style="font-size: 50px">&#9829;</th>
+            <th style="font-size: 30px">&#128139;</th>
+            <th style="font-size: 40px">&#9760;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr style="align-self: center">
+                <td class="font"><b>{{ result.love }}</b></td>
+                <td class="font"><b>{{ result.kiss }}</b></td>
+                <td class="font"><b>{{ result.kill }}</b></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <input type="submit" class="button primary font"
+           name="startGame" value="Сначала" onclick="document.location = '/game/redact'">
+</div>
+<!-- Scripts -->
+<script>
+</script>
+</body>
+</html>

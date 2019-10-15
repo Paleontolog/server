@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Выбирай)</title>
+    <link href="../static/assets/css/main2.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/assets/css/myCSS2.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1 align="center"> Список персонажей </h1>
+<div class="wrapper inner content" align="center">
+    <form action="/game/step" method="post">
+        {% if error %}
+            <label class="font">Выбери каждому свою участь!</label>
+        {% endif %}
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr style="align-self: center">
+                    <th class="font">Имя</th>
+                    <th style="font-size: 50px">&#9829;</th>
+                    <th style="font-size: 30px">&#128139;</th>
+                    <th style="font-size: 40px">&#9760;</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for character in characters %}
+                    <tr style="align-self: center">
+                        <td class="font" style="width: 60%"><b>{{ character }}</b></td>
+                        <td style="width: 10%;">
+                            <div class="col-4 col-12-small">
+                                <input type="radio" id="{{ character }}_love" checked name="{{character}}" value="love">
+                                <label for="{{ character }}_love"></label>
+                            </div>
+                        </td>
+                        <td style="width: 10%">
+                            <div class="col-4 col-12-small">
+                                <input type="radio" id="{{ character }}_kiss" name="{{character}}" value="kiss">
+                                <label for="{{ character }}_kiss"></label>
+                            </div>
+                        </td>
+                        <td style="width: 10%">
+                            <div class="col-4 col-12-small">
+                                <input type="radio" id="{{ character }}_kill" name="{{ character }}" value="kill">
+                                <label for="{{ character }}_kill"></label>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" class="button primary font"
+               name="startGame" value="Дальше">
+    </form>
+</div>
+<!-- Scripts -->
+<script>
+
+</script>
+</body>
+</html>

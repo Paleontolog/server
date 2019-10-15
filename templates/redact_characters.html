@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Список персонажей</title>
+    <link href="../static/assets/css/main2.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/assets/css/myCSS2.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1 align="center"> Список персонажей </h1>
+<h2 id="numb" align="center">{{ num }}</h2>
+<div class="wrapper inner content" align="center">
+    <form action="/game/save" method="post">
+        <ul class="actions fit">
+            <li>
+                <input type="text" name="name" required value="" class="font" placeholder="введи имя">
+            </li>
+            <li>
+                <input type="submit" class="button primary font"
+                       name="changeAddresses" value="Добавить">
+            </li>
+        </ul>
+    </form>
+    <div id="addressess" class='table-wrapper scroll font'
+         style="height: 500px;">
+        <table class="alt">
+            <thead>
+            <tr>
+                <th class="font" style="width: 60%">Имя</th>
+                <th class="font" style="width: 10%">Удалить</th>
+            </tr>
+            </thead>
+            <tbody id="emails list">
+            {% for character in characters %}
+                <tr>
+                    <td>
+                        {{ character }}
+                    </td>
+                    <td>
+                        <button class="button primary small" id="del-btn">X</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <input type="submit" id="btn_next" class="button primary font"
+           name="startGame" value="Начать игру">
+</div>
+<!-- Scripts -->
+<script>
+    document.querySelectorAll("#del-btn").forEach(function (value) {
+        value.addEventListener('click', function (evt) {
+            var elem = evt.target.parentElement.parentElement.cells[0].innerHTML;
+            document.location = "/game/redact/del?name=" + elem.trim();
+        })
+    });
+    document.querySelectorAll("#btn_next").forEach(function (value) {
+        value.addEventListener('click', function (evt) {
+            var inp = document.querySelector('#numb');
+            if (parseInt(inp.innerHTML.replace(/[^\d]/, '')) % 3 === 0) {
+                document.location = '/game';
+            } else {
+                inp.innerHTML += ' - Нечётное число!';
+            }
+        })
+    });
+</script>
+</body>
+</html>
