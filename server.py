@@ -51,7 +51,6 @@ def get_str2():
 
 @app.route('/miner', methods=['GET'])
 def get_miner():
-    return render_template("miner12.html")
     return render_template("miner2.html")
 
 #---------------------- game -------------------------
