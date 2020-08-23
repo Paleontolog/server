@@ -203,13 +203,13 @@ def get_three_characters():
         results = results.values()
         return render_template("results.html", results=results)
 
-
+parser = argparse.ArgumentParser()
+parser.add_argument("--db", type=str,
+    default='sqlite:///D:\PycharmProjects\keyboard\static\database.db')
+args = parser.parse_args()
+app.config['SQLALCHEMY_DATABASE_URI'] = args.db
+    
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--db", type=str,
-                        default='sqlite:///D:\PycharmProjects\keyboard\static\database.db')
-    args = parser.parse_args()
-    app.config['SQLALCHEMY_DATABASE_URI'] = args.db
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
