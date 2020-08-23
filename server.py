@@ -13,11 +13,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exists
 
 app = Flask(__name__)
-parser = argparse.ArgumentParser()
-parser.add_argument("--db", type=str,
-                        default='sqlite:///D:\PycharmProjects\keyboard\static\database.db')
-args = parser.parse_args()
-app.config['SQLALCHEMY_DATABASE_URI'] = args.db
+
+with open("url.txt", "r") as r:
+  app.config['SQLALCHEMY_DATABASE_URI'] = r.read().strip()
 
 db = SQLAlchemy(app)
 db.create_all()
