@@ -13,7 +13,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exists
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://xxknkhzxipvwwb:1197713067eee1f838b085fc21c995195ac966ee0a1e2c2cf02f7091f786e67c@ec2-54-243-241-62.compute-1.amazonaws.com:5432/d48ekpf4375j2r"
+parser = argparse.ArgumentParser()
+parser.add_argument("--db", type=str,
+                        default='sqlite:///D:\PycharmProjects\keyboard\static\database.db')
+args = parser.parse_args()
+app.config['SQLALCHEMY_DATABASE_URI'] = args.db
 
 db = SQLAlchemy(app)
 db.create_all()
@@ -205,10 +209,6 @@ def get_three_characters():
         return render_template("results.html", results=results)
     
 if __name__ == '__main__':
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument("--db", type=str,
-    #    default='postgres://xxknkhzxipvwwb:1197713067eee1f838b085fc21c995195ac966ee0a1e2c2cf02f7091f786e67c@ec2-54-243-241-62.compute-1.amazonaws.com:5432/d48ekpf4375j2r')
-    #args = parser.parse_args()
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
