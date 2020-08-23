@@ -206,7 +206,7 @@ def get_three_characters():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", type=str,
-        default='sqlite:///D:\PycharmProjects\keyboard\static\database.db')
+        default='postgres://xxknkhzxipvwwb:1197713067eee1f838b085fc21c995195ac966ee0a1e2c2cf02f7091f786e67c@ec2-54-243-241-62.compute-1.amazonaws.com:5432/d48ekpf4375j2r')
     args = parser.parse_args()
     app.config['SQLALCHEMY_DATABASE_URI'] = args.db
     db.create_all()
