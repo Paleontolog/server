@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Список персонажей</title>
@@ -9,6 +9,9 @@
 <body>
 <h1 align="center"> Список персонажей </h1>
 <h2 id="numb" align="center">{{ num }}</h2>
+{% if error %}
+    <h2 align="center">Персонаж "{{ error_character }}" уже сохранен!</h2>
+{% endif %}
 <div class="wrapper inner content" align="center">
     <form action="/game/save" method="post">
         <ul class="actions fit">
@@ -58,7 +61,8 @@
     document.querySelectorAll("#btn_next").forEach(function (value) {
         value.addEventListener('click', function (evt) {
             var inp = document.querySelector('#numb');
-            if (parseInt(inp.innerHTML.replace(/[^\d]/, '')) % 3 === 0) {
+            var userCount = parseInt(inp.innerHTML.replace(/[^\d]/, ''));
+            if (userCount % 3 === 0 || userCount > 30) {
                 document.location = '/game';
             } else {
                 inp.innerHTML += ' - Нечётное число!';
