@@ -42,5 +42,5 @@ PyYAML==5.1.2
 s3transfer==0.2.1
 schedule==0.6.0
 smart-open==1.8.4
-Twisted==19.7.0
+Twisted==22.2.0
 Werkzeug==0.15.5
